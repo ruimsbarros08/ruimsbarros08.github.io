@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rui barros web developer</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+<body ng-app="website" ng-controller="websiteCtrl">
+
+<nav class="navigator-container main-box" >
+	<ul class="nav nav-pills nav-stacked">
+	  <li du-scrollspy="home"><a href="#home" du-smooth-scroll ><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+	  <li du-scrollspy="aboutme"><a href="#aboutme" du-smooth-scroll ><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+	  <li du-scrollspy="education"><a href="#education" du-smooth-scroll ><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a></li>
+	  <li du-scrollspy="projects"><a href="#projects" du-smooth-scroll ><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></a></li>
+	  <li du-scrollspy="freetime"><a href="#freetime" du-smooth-scroll ><span class="glyphicon glyphicon-plane" aria-hidden="true"></span></a></li>
+	  <li du-scrollspy="contacts"><a href="#contacts" du-smooth-scroll ><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
+	</ul>
+</nav>
+
+
+<div class="container-fluid" >
+	<div id='home' class="row background-fixed" style="background-image: url('porto.jpg'); height:100vh;">
+
+		<div class="row" style="height:20vh;">
+			<div class="col-md-12"></div>
+		</div>
+
+		<div class="row">
+	
+			<div class="col-md-4 col-md-offset-4 main-box">
+
+				<img class="img-fit" src="ruibarros.png">
+				<br>
+				<p>Hello! My name is</p>
+				<h1>RUI BARROS</h1>
+				<p>and I am a</p>
+				<h2>WEB DEVELOPER</h2>
+				<h3> <a href="#aboutme" du-smooth-scroll>  <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> </a> </h3>
+
+			</div>
+			
+		</div>
+	</div>
+
+	<div id="aboutme" class="row background-fixed" style=" background-color: #FFFFFF; height:100vh;">
+		<div class="col-md-4 col-md-offset-4">
+			<h3>About me</h3>
+		</div>
+	</div>
+
+	<div id="education" class="row background-fixed" style="background-image: url('lello.jpg'); height:100vh;">
+		<div class="col-md-4 col-md-offset-4">
+			<h3>Education</h3>
+		</div>
+	</div>
+
+	<div id="projects" class="row background-fixed" style="background-color: #FFFFFF; height:100vh;">
+		<div class="col-md-4 col-md-offset-4">
+			<h3>Projects</h3>
+		</div>
+	</div>
+
+	<div id="freetime" class="row background-fixed" style="background-image: url('dluis.jpg'); height:100vh;">
+		<div class="col-md-4 col-md-offset-4">
+			<h3>Free Time</h3>
+		</div>
+	</div>
+
+	<div id="contacts" class="row background-fixed" style=" background-color: #FFFFFF; height:100vh;">
+		<div class="col-md-4 col-md-offset-4">
+			<h3>Contacts</h3>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="https://code.angularjs.org/1.3.16/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.7.1/angular-scroll.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
