@@ -2,17 +2,20 @@
 <html>
 <head>
 	<title>rui barros web developer</title>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-csp.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 
 </head>
 <body ng-app="website" ng-controller="websiteCtrl">
 
-<nav class="navigator-container main-box" >
-	<ul class="nav nav-pills nav-stacked">
+<nav>
+	<ul id='navigator' class="nav nav-pills main-box">
 	  <li du-scrollspy="home"><a href="#home" du-smooth-scroll ><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="aboutme"><a href="#aboutme" du-smooth-scroll ><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+	  <li du-scrollspy="map"><a href="#map" du-smooth-scroll ><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="education"><a href="#education" du-smooth-scroll ><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="projects"><a href="#projects" du-smooth-scroll ><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="freetime"><a href="#freetime" du-smooth-scroll ><span class="glyphicon glyphicon-plane" aria-hidden="true"></span></a></li>
@@ -21,8 +24,8 @@
 </nav>
 
 
-<div class="container-fluid" >
-	<div id='home' class="row background-fixed" style="background-image: url('porto.jpg'); height:100vh;">
+<div id='container' class="container-fluid" >
+	<div id='home' class="row background-fixed" style="background-image: url('img/porto.jpg'); height:100vh;">
 
 		<div class="row" style="height:20vh;">
 			<div class="col-md-12"></div>
@@ -30,9 +33,9 @@
 
 		<div class="row">
 	
-			<div class="col-md-4 col-md-offset-4 main-box">
+			<div class="col-md-4 col-md-offset-4 main-box" id='home_box'>
 
-				<img class="img-fit" src="ruibarros.png">
+				<img class="img-fit" src="img/ruibarros.png">
 				<br>
 				<p>Hello! My name is</p>
 				<h1>RUI BARROS</h1>
@@ -45,44 +48,219 @@
 		</div>
 	</div>
 
-	<div id="aboutme" class="row background-fixed" style=" background-color: #FFFFFF; height:100vh;">
-		<div class="col-md-4 col-md-offset-4">
+
+	<div id="aboutme" class="row background-fixed" style=" background-color: #FFFFFF;">
+		<div class="col-md-6 col-md-offset-3">
+			<div style="height:20vh;"></div>
+			
 			<h3>About me</h3>
+
+			I am a self made web developer who was born in the city of Porto in the Northern Portugal. My interest in code started when I was in the university taking master degree in Structural Engineering. Since then I have been aquiring knowledge in web development, taking <a href="#education" du-smooth-scroll> courses </a> and exploring the technologies by myself. I also made part of few <a href="#projects" du-smooth-scroll>projects</a>.
+			
+			<div style="height:20vh;"></div>
+
 		</div>
 	</div>
 
-	<div id="education" class="row background-fixed" style="background-image: url('lello.jpg'); height:100vh;">
-		<div class="col-md-4 col-md-offset-4">
-			<h3>Education</h3>
+	<div id="map" class="row background-fixed" style="height:40vh;">
+		<div id="map-canvas" style="height: 100%;"></div>
+	</div>
+
+	<div id="education" class="row background-fixed" style="background-image: url('img/blackboard.jpg');">
+		<div class="col-md-6 col-md-offset-3 main-box">
+			<div style="height:10vh;">
+				<h3 class="general-title">Education</h3>
+			</div>
+
+			<div class="row">
+
+				<div class="col-md-4 project-box" ng-repeat="obj in education.studies" id='{{ obj.id }}'>
+					<div class="background" style="background-color:  {{ obj.color }}; ">
+						<h1> {{ obj.name }} </h1>
+					</div>
+
+					<div class="menu" align="center">
+						<div style="height: 40%;"> </div>
+						<p>
+							{{ obj.date_started }} - {{ obj.date_finished }}
+						</p>
+						<p>
+							<b>Course: </b> {{ obj.course }}
+						</p>
+
+						<p> <button class="btn btn-primary btn-sm" style="width: 70%;" ng-click="open(obj.id, 'description')"><span class="glyphicon glyphicon-th-list" aria-hidden="true"> </span> Description </button></p>
+						
+						<p> <a href="#map" du-smooth-scroll > <button class="btn btn-primary btn-sm" style="width: 70%;" ng-click="setMarkerPos(obj.location.lat, obj.location.lon, obj.location.place)"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> </span> {{ obj.location.place }} </button> </a></p>
+
+						<p> <a href="{{ obj.link }}" target="_blank"> <button class="btn btn-primary btn-sm" style="width: 70%;"> <span class="glyphicon glyphicon-globe" aria-hidden="true"> </span> Website </button> </a></p>
+
+					</div>
+
+					<div class="description" align="center">
+						<h4>
+							{{ obj.name }}
+						</h4>
+						<p>
+							{{ obj.details }}
+						</p>
+						<div class="close-btn btn btn-sm btn-danger" ng-click="close(obj.id, 'description')"><b>x</b></div>
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+			<div style="height:10vh;">
+				<h3 class="general-title">Other courses</h3>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4 project-box" ng-repeat="obj in education.online_courses" id='{{ obj.id }}'>
+					<div class="background" style="background-color:  {{ obj.color }}; ">
+						<h1> {{ obj.name }} </h1>
+					</div>
+
+					<div class="menu" align="center">
+						<div style="height: 40%;"> </div>
+						<p>
+							{{ obj.year }}
+						</p>
+
+						<p> <div class="btn btn-primary btn-sm" style="width: 70%;" ng-click="open(obj.id, 'tech')"> <span> <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> Languages </div></p>
+
+						<p> <div class="btn btn-primary btn-sm" style="width: 70%;" ng-click="open(obj.id, 'description')"> <span> <span class="glyphicon glyphicon-th-list" aria-hidden="true"> </span> Description </div></p>
+
+						<p> <a href="{{ obj.link }}" target="_blank"> <button class="btn btn-primary btn-sm" style="width: 70%;"> <span class="glyphicon glyphicon-globe" aria-hidden="true"> </span> Website </button> </a></p>
+
+					</div>
+
+					<div class="description" align="center">
+						<h4>
+							{{ obj.name }}
+						</h4>
+						<p>
+							{{ obj.details }}
+						</p>
+						<div class="close-btn btn btn-sm btn-danger" ng-click="close(obj.id, 'description')"><b>x</b></div>
+					</div>
+
+					<div class="tech" align="center">
+						<h4>
+							{{ obj.name }}
+						</h4>
+						<p>
+							<b>Technologies: </b>
+							<ul class="no-bullets">
+								<li ng-repeat="tech in obj.languages"> {{ tech }} </li>
+							</ul>
+						</p>
+						<div class="close-btn btn btn-sm btn-danger" ng-click="close(obj.id, 'tech')"><b>x</b></div>
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 
-	<div id="projects" class="row background-fixed" style="background-color: #FFFFFF; height:100vh;">
-		<div class="col-md-4 col-md-offset-4">
-			<h3>Projects</h3>
+	<div id="projects" class="row background-fixed" style="background-color: #FFFFFF;">
+		<div class="col-md-12" style="height: 20vh;"></div>
+
+		<div class="col-md-12" style="height: 20vh;">
+			<h1 class="general-title">Portfolio</h1>
 		</div>
+
+		<div class="col-md-8 col-md-offset-2">
+
+			<div class="row">
+				
+				<div class="col-md-4 project-box" ng-repeat="obj in projects" id='{{ obj.id }}'>
+					<div class="background" style="background-color:  {{ obj.color }}; ">
+						<h1>
+							{{ obj.name| uppercase }}
+						</h1>
+					</div>
+
+					<div class="menu" align="center">
+
+						<div style="height: 40%;"> </div>
+
+						<p> <div class="btn btn-primary btn-sm" style="width: 50%;" ng-click="open(obj.id, 'description')"> <span> <span class="glyphicon glyphicon-th-list" aria-hidden="true"> </span> Description </div></p>
+
+						<p> <div class="btn btn-primary btn-sm" style="width: 50%;" ng-click="open(obj.id, 'tech')"> <span> <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> Technologies </div> </p>
+						
+						<p> <a href="{{ obj.github }}" target="_blank"> <button class="btn btn-primary btn-sm" style="width: 50%;"> <span class="glyphicon glyphicon-globe" aria-hidden="true"> </span> GitHub </button> </a> </p>
+						
+						<p> <a href="{{ obj.link }}" target="_blank"> <button class="btn btn-primary btn-sm" style="width: 50%;"> <span class="glyphicon glyphicon-play" aria-hidden="true"> </span> View App </button> </a> </p>
+					</div>
+
+					<div class="description" align="center">
+						<h4>
+							{{ obj.name }}
+						</h4>
+						<p>
+							{{ obj.details }}
+						</p>
+						<div class="close-btn btn btn-sm btn-danger" ng-click="close(obj.id, 'description')"><b>x</b></div>
+					</div>
+
+					<div class="tech" align="center">
+						<h4>
+							{{ obj.name }}
+						</h4>
+						<p>
+							<b>Technologies: </b>
+							<ul class="no-bullets">
+								<li ng-repeat="tech in obj.technologies"> {{ tech }} </li>
+							</ul>
+						</p>
+						<div class="close-btn btn btn-sm btn-danger" ng-click="close(obj.id, 'tech')"><b>x</b></div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+		<div class="col-md-12" style="height: 20vh;" align="center"></div>
+
 	</div>
 
-	<div id="freetime" class="row background-fixed" style="background-image: url('dluis.jpg'); height:100vh;">
+	<div id="freetime" class="row background-fixed" style="background-image: url('img/pontes.jpg'); height:100vh;">
 		<div class="col-md-4 col-md-offset-4">
-			<h3>Free Time</h3>
+			
 		</div>
 	</div>
 
 	<div id="contacts" class="row background-fixed" style=" background-color: #FFFFFF; height:100vh;">
 		<div class="col-md-4 col-md-offset-4">
-			<h3>Contacts</h3>
+			
 		</div>
 	</div>
 </div>
 
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
 
-<script type="text/javascript" src="https://code.angularjs.org/1.3.16/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-sanitize.min.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.7.1/angular-scroll.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="http://passy.github.io/angular-masonry/angular-masonry.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQl4_uBqK29kmTd1okpaLg-yP_5BYWYXg"> </script>
+
+<script type="text/javascript" src="js/app.js"></script>
 
 </body>
 </html>
