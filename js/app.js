@@ -14,9 +14,29 @@ website.filter('capitalize', function() {
 
 
 
-website.controller('websiteCtrl', function ($scope) {
+website.controller('websiteCtrl', function ($scope, $document, $window) {
 
 	angular.element('#home_box').velocity("transition.slideDownIn");
+
+	angular.element($document).ready(function() {  
+        angular.element("html").niceScroll();
+    });
+
+
+	function fader() {
+        var b = angular.element('#home_box'),
+        	dt = angular.element($document).scrollTop(),
+        	bh = b.height(),
+        	bo = b.offset().top,
+        	ratio = dt / (bh + bo)
+
+	    if (ratio >= 0 && ratio <= 1) {
+	        angular.element('#home_box').css({opacity: 1 - ratio});
+	    }
+
+	}
+
+	angular.element($document).bind('scroll', fader);
 
 
 	var mapOptions = {

@@ -12,13 +12,13 @@
 <body ng-app="website" ng-controller="websiteCtrl">
 
 <nav>
-	<ul id='navigator' class="nav nav-pills main-box">
+	<ul id='navigator' class="nav nav-pills navigator-box">
 	  <li du-scrollspy="home"><a href="#home" du-smooth-scroll ><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="aboutme"><a href="#aboutme" du-smooth-scroll ><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="map"><a href="#map" du-smooth-scroll ><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="education"><a href="#education" du-smooth-scroll ><span class="glyphicon glyphicon-book" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="projects"><a href="#projects" du-smooth-scroll ><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></a></li>
-	  <li du-scrollspy="freetime"><a href="#freetime" du-smooth-scroll ><span class="glyphicon glyphicon-plane" aria-hidden="true"></span></a></li>
+	  <li du-scrollspy="hobbies"><a href="#hobbies" du-smooth-scroll ><span class="glyphicon glyphicon-plane" aria-hidden="true"></span></a></li>
 	  <li du-scrollspy="contacts"><a href="#contacts" du-smooth-scroll ><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
 	</ul>
 </nav>
@@ -26,26 +26,27 @@
 
 <div id='container' class="container-fluid" >
 	<div id='home' class="row background-fixed" style="background-image: url('img/porto.jpg'); height:100vh;">
-
-		<div class="row" style="height:20vh;">
-			<div class="col-md-12"></div>
-		</div>
-
-		<div class="row">
 	
-			<div class="col-md-4 col-md-offset-4 main-box" id='home_box'>
+		<div class="col-md-offset-4 col-md-4" id='home_box' style="height:100%;">
 
-				<img class="img-fit" src="img/ruibarros.png">
-				<br>
-				<p>Hello! My name is</p>
-				<h1>RUI BARROS</h1>
-				<p>and I am a</p>
-				<h2>WEB DEVELOPER</h2>
-				<h3> <a href="#aboutme" du-smooth-scroll>  <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> </a> </h3>
+			<div style="display: table; position: absolute; height: 100%; width: 100%;">
+				<div style="display: table-cell; vertical-align: middle;">
+					
+					<div class="main-box">
+						<img class="img-fit" src="img/ruibarros.png">
+						<br>
+						<p>Hello! My name is</p>
+						<h1>RUI BARROS</h1>
+						<p>and I am a</p>
+						<h2>WEB DEVELOPER</h2>
+						<h3> <a href="#aboutme" du-smooth-scroll>  <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> </a> </h3>
+					</div>
+				</div>
 
 			</div>
-			
+
 		</div>
+			
 	</div>
 
 
@@ -232,7 +233,7 @@
 
 	</div>
 
-	<div id="freetime" class="row background-fixed" style="background-image: url('img/pontes.jpg'); height:100vh;">
+	<div id="hobbies" class="row background-fixed" style="background-image: url('img/pontes.jpg'); height:100vh;">
 		<div class="col-md-4 col-md-offset-4">
 			
 		</div>
@@ -247,6 +248,7 @@
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>

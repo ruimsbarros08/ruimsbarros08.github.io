@@ -49,6 +49,22 @@
 	color: #000;
 }
 
+.navigator-box {
+	padding-bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navigator-box span  {
+	color: #FFF;
+/*	text-align: center;
+	font-weight: lighter;
+	letter-spacing: 10px;*/
+}
+
+.navigator-box a:hover span {
+	color: #000;
+}
+
 /*
 .mask {
 	display: none;
