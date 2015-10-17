@@ -2,7 +2,7 @@
 
 
 
-var website = angular.module('website', ['duScroll', 'wu.masonry']);
+var website = angular.module('website', ['duScroll', 'ngSanitize', 'ui.bootstrap']);
 
 website.filter('capitalize', function() {
   return function(input, scope) {
@@ -18,9 +18,9 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 
 	angular.element('#home_box').velocity("transition.slideDownIn");
 
-	angular.element($document).ready(function() {  
-        angular.element("html").niceScroll();
-    });
+	// angular.element($document).ready(function() {  
+ //        angular.element("html").niceScroll();
+ //    });
 
 
 	function fader() {
@@ -93,34 +93,73 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 		}
 	});
 
+	$scope.experience = [
+		{
+			id: 'feup',
+			company: 'FEUP -  Faculdade de Engenharia da Universidade do Porto',
+			img: 'img/feup.png',
+			link: 'https://sigarra.up.pt/feup/pt/web_page.inicial',
+			position: 'Researcher and IT developer',
+			period: '2013 - 2015',
+			shown_details: false,
+			locations: [
+				{
+					city: 'Porto, Portugal',
+					place: 'FEUP',
+					lat: 41.1787077,
+					lon: -8.5958268
+				},
+				{
+					city: 'Pavia, Italy',
+					place: 'EUCENTER',
+					lat: 45.2023157,
+					lon: 9.134127
+				}
+			],
+			responsabilities: 'Dissimination of the research project PRISE',
+			description: "From October of 2013 to September of 2015 I've been working in the research project <a href='http://prise.fe.up.pt/eqlogger' target='_blank'> PRISE. </a> <br> \
+						The aim of the project was the earthquake loss assessment of the portuguese building stock, throught the construction of different types os models, \
+						and the risk analysis on <a href='http://www.globalquakemodel.org/openquake/about/' target='_blank'> Openquake. </a> <br> \
+						My enrollment was both on the construction of theses models, and also on the dissimination of the outcomes of the project. \
+						One of this outcomes is a web application called <a href='http://prise.fe.up.pt/eqlogger/'> EQLogger </a>. \
+						This is a platform that brings data visualization for real time and probabilistic assessment of earthquake consequences in Portugal. \
+						It provides interactive maps and charts that allow entities such as Civil Protection to make decisions in the case of a disaster. <br> \
+						On this job I had the opportunity to interact with the international partner <a href='http://www.globalquakemodel.org/' target='_blank'> GEM Foundation </a> in Pavia, Italy. \
+						This foundation is one of the most regognized institutions in earthquake risk engineering worldwide. "
+		},
+	]
+
+
 
 	$scope.education =  {
-		studies: [{
-			id: 'esha',
-			color: 'orange',
-			type: 'Highschool',
-			name: 'Escola Secundária Alexandre Herculano',
-			date_started: '2005',
-			date_finished: '2008',
-			course: 'Science',
-			link: 'http://www.aealexandreherculano.pt/',
-			details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-			location: {
-				place: 'ESAH',
-				lat: 41.1487249,
-				lon: -8.5945147
-			}
-		},
+		studies: [
+		// {
+		// 	id: 'esha',
+		// 	color: 'orange',
+		// 	type: 'Highschool',
+		// 	name: 'Escola Secundária Alexandre Herculano',
+		// 	date_started: '2005',
+		// 	date_finished: '2008',
+		// 	course: 'Science',
+		// 	link: 'http://www.aealexandreherculano.pt/',
+		// 	details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+		// 	location: {
+		// 		place: 'ESAH',
+		// 		lat: 41.1487249,
+		// 		lon: -8.5945147
+		// 	}
+		// },
 		{
 			id: 'feup',
 			color: 'darkred',
 			type: 'University',
-			name:'FEUP - Faculty of Engineering of University of Porto',
+			name:'FEUP - Faculdade de Engenharia da Universidade do Porto',
 			date_started: '2008',
 			date_finished: '2013',
 			course: 'Civil Engineering',
-			link: 'http://paginas.fe.up.pt/~dec/',
-			details: 'Master in Structural Engineering',
+			link: 'https://sigarra.up.pt/feup/pt/web_page.inicial',
+			details: 'I started my Integrated Master in Civil Engineering in 2008 and finished it in 2013 with the specialization in structural engineering.<br> \
+					This degree opened me the door to work in seismic engineering and risk assessment.',
 			location: {
 				place: 'FEUP',
 				lat: 41.1787077,
@@ -136,7 +175,7 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			date_finished: '2013',
 			course: 'Civil Engineering',
 			link: 'http://www.upc.edu/learning/courses/masters-degrees/civil-engineering?set_language=en',
-			details: 'Erasmus Programme. Time to travel and learn new cultures and languages.<br> I had the opportunity to learn Spanish and Catalan.',
+			details: 'Erasmus Programme. Time to travel and learn new cultures and languages.<br> I had the opportunity to learn Spanish and Catalan and meet plenty of people from everywhere.',
 			location: {
 				place:'UPC',
 				lat: 41.3884033,
@@ -152,7 +191,7 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			date_finished: 'Current',
 			course: 'Computer Science',
 			link: 'https://www.isep.ipp.pt/Course/Course/26',
-			details: 'Lorem ipsum',
+			details: "Even though I've been working on this area for quite some time, I felt that with this course I could be one step further.",
 			location: {
 				place:'ISEP',
 				lat: 41.1778174,
@@ -233,7 +272,7 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			name: 'FLANGE+WEB 2.0',
 			link: 'http://openg.fe.up.pt/flangeplusweb2.0/',
 			github: 'https://github.com/ruimsbarros08/flangeplusweb2.0',
-			technologies: ['Flask', 'SQLite', 'AngularJS', 'Bootstrap'],
+			technologies: ['Python (Flask)', 'SQLite', 'AngularJS', 'Bootstrap'],
 			details: 'A Single Page Web App for structural Engineers to perform some calclations on the backend',
 			image: 'img/flange.png',
 			color: 'orange'
@@ -243,7 +282,7 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			name: 'EQLogger',
 			link: 'http://prise.fe.up.pt/eqlogger/',
 			github: 'https://github.com/ruimsbarros08/prise',
-			technologies: ['Flask', 'PostgreSQL', 'Postgis', 'Openquake', 'Tilestache', 'Leaflet', 'AngularJS', 'Bootstrap'],
+			technologies: ['Python (Flask)', 'PostgreSQL', 'Postgis', 'Openquake', 'Tilestache', 'Leaflet', 'AngularJS', 'Bootstrap'],
 			details: 'Wep Application for seismic risk data visualition. We used a software at the backend called Openquake to perform analysis. We pick up the results, store them on PostgreSQL database and we produce the data visualization on Leaflet Javascript maps and Highcharts.',
 			image: 'img/prise.jpg',
 			color: 'SkyBlue '
@@ -253,7 +292,7 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			name: 'Risco',
 			link: 'http://prise.fe.up.pt/risco/',
 			github: 'https://github.com/ruimsbarros08/risco',
-			technologies: ['Django', 'PostgreSQL', 'Postgis', 'Openquake', 'Leaflet', 'AngularJS', 'Bootstrap'],
+			technologies: ['Python (Django)', 'PostgreSQL', 'Postgis', 'Openquake', 'Leaflet', 'AngularJS', 'Bootstrap'],
 			details: 'Cloud based computing and data visualization for earthquake risk analysis',
 			image: 'img/risco.jpg',
 			color: 'green'
@@ -263,12 +302,50 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			name: 'Metalogalva',
 			link: 'http://prise.fe.up.pt/metalogalva/',
 			github: 'https://github.com/ruimsbarros08/metalogalva',
-			technologies: ['Django', 'PostgreSQL', 'AngularJS', 'Bootstrap'],
-			details: 'Web app for company products',
+			technologies: ['Python (Django)', 'PostgreSQL', 'AngularJS', 'Bootstrap'],
+			details: "Web app for <a href='http://www.metalogalva.pt/en/' target='_blank'> Metalogalva</a>'s  products.<br> Given some parameters this app selects the products that best fit your requirements.",
 			image: 'img/metalogalva.jpg',
 			color: 'MidnightBlue '
 		},
+	];
+
+	$scope.hobbies = ['Football',
+					'Explore Spotify',
+					'Music Concerts',
+					'Wikipedia',
+					'History',
+					'Travel',
+					'Jogging',
+					'TV Series']
+
+	$scope.contacts = [
+		// {
+		// 	name: 'Facebook',
+		// 	link: 'https://www.facebook.com/rui.barros.31',
+		// 	img: 'img/facebook.png',
+		// },
+		{
+			name: 'Gmail',
+			link: 'mailto:ruimsbarros08@gmail.com',
+			img: 'img/gmail.ico',
+		},
+		{
+			name: 'CV',
+			link: 'cv.pdf',
+			img: 'img/cv.png',
+		},
+		{
+			name: 'LinkedIn',
+			link: 'https://pt.linkedin.com/pub/rui-barros/41/595/297',
+			img: 'img/linkedin.png',
+		},
+		{
+			name: 'GitHub',
+			link: 'https://github.com/ruimsbarros08',
+			img: 'img/github.png',
+		},
 	]
+
 
 	$scope.open = function(id, menu){
 		angular.element('#'+id+' .'+menu).addClass('active');
