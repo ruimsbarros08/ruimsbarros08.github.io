@@ -58,7 +58,7 @@
 			
 			<h3>About me</h3>
 
-			I am a self-made web developer who was born in the city of Porto in the northern Portugal. My interest in code started when I was in the university taking master degree in Structural Engineering. Since then I have been acquiring knowledge in web development, taking <a href="#education" du-smooth-scroll> courses </a> and applying the knowledge in some <a href="#projects" du-smooth-scroll>projects</a>.
+			<p class="text-justify">I am a self-made web developer who was born in the city of Porto in the northern Portugal. My interest in code started when I was in the university taking master degree in Structural Engineering. Since then I have been acquiring knowledge in web development, taking <a href="#education" du-smooth-scroll> courses </a> and applying the knowledge in some <a href="#projects" du-smooth-scroll>projects</a>.</p>
 			
 			<div style="height:20vh;"></div>
 
@@ -79,11 +79,11 @@
 			<div class="row">
 				<div class="col-md-12" ng-repeat="obj in experience" id='{{ obj.id }}'>
 					<div class="row">
-						<div class="col-md-4" align="center">
+						<div class="col-md-4 col-sm-4" align="center">
 							<a href="{{ obj.link }}" target="_blank"> <img src="{{ obj.img }}" style="max-width:50%; max-height:50%;"> </a>
 							<div style="height:25px;"></div>
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-8 col-sm-8">
 							<h4> {{ obj.position }} at <a href="{{ obj.link }}" target="_blank"> {{ obj.company }} </a> ({{ obj.period }}) </h4>
 							<br>
 							<p><b>Keywords:</b> <span ng-repeat="kw in obj.keywords"> {{ kw }}{{$last ? '' : ', '}} </span> </p>
@@ -115,7 +115,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-md-4" align="center">
+				<div class="col-md-4 col-sm-4" align="center">
 					<a href="#contacts" du-smooth-scroll>
 						<div class="hire-box contact-box">
 							<!-- <div style="height:25px;"></div> -->
@@ -123,7 +123,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-8 col-sm-8">
 					<h4> Looking for a candidate like me for your company? Just contact me!</h4>
 				</div>
 				
@@ -302,7 +302,7 @@
 			<div class="row">
 				<div ng-repeat="contact in contacts" class="col-md-3">
 					<div class="contact-box" align="center">
-						<a href="{{ contact.link }}" target="_blank"> <img  style="max-width:50%; max-height:50%;" src="{{ contact.img }}"> </a>
+						<a href="{{ contact.link }}" target="_blank"> <img  style="max-width:30%; max-height:30%;" src="{{ contact.img }}"> </a>
 					</div>
 					<div style="height:50px;"></div>
 				</div>
