@@ -18,9 +18,9 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 
 	angular.element('#home_box').velocity("transition.slideDownIn");
 
-	// angular.element($document).ready(function() {  
- //        angular.element("html").niceScroll();
- //    });
+	angular.element($document).ready(function() {  
+        angular.element("html").niceScroll();
+    });
 
 
 	function fader() {
@@ -116,9 +116,9 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 					lon: 9.134127
 				}
 			],
-			responsabilities: 'Dissimination of the research project PRISE',
+			keywords: ['Earthquake Risk', 'Data Visualization'],
 			description: "From October of 2013 to September of 2015 I've been working in the research project <a href='http://prise.fe.up.pt/eqlogger' target='_blank'> PRISE. </a> <br> \
-						The aim of the project was the earthquake loss assessment of the portuguese building stock, throught the construction of different types os models, \
+						The aim of the project was the earthquake loss assessment of the Portuguese building stock, through the construction of different types of models, \
 						and the risk analysis on <a href='http://www.globalquakemodel.org/openquake/about/' target='_blank'> Openquake. </a> <br> \
 						My enrollment was both on the construction of theses models, and also on the dissimination of the outcomes of the project. \
 						One of this outcomes is a web application called <a href='http://prise.fe.up.pt/eqlogger/'> EQLogger </a>. \
@@ -343,6 +343,41 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			name: 'GitHub',
 			link: 'https://github.com/ruimsbarros08',
 			img: 'img/github.png',
+		},
+	]
+
+	$scope.credits = [
+		{
+			name: 'AngularJS',
+			link: 'https://angularjs.org/'
+		},
+		{
+			name: 'Bootstrap',
+			link: 'http://getbootstrap.com/'
+		},
+		{
+			name: 'Angular-ui-bootstrap',
+			link: 'https://angular-ui.github.io/bootstrap/'
+		},
+		{
+			name: 'Angular-scroll',
+			link: 'https://github.com/oblador/angular-scroll'
+		},
+		{
+			name: 'Nicescroll',
+			link: 'https://github.com/inuyaksa/jquery.nicescroll'
+		},
+		{
+			name: 'Velocity.js',
+			link: 'http://julian.com/research/velocity/'
+		},
+		{
+			name: 'Enquire.js',
+			link: 'http://wicky.nillia.ms/enquire.js/'
+		},
+		{
+			name: 'Google Maps JS API',
+			link: 'https://developers.google.com/maps/documentation/javascript/'
 		},
 	]
 

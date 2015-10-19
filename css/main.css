@@ -399,6 +399,19 @@
 }
 
 
+/* unvisited link */
+#credits a:link {
+    color: #FFFFFF;
+}
+
+/* visited link */
+#credits a:visited {
+    color: #FFFFFF;
+}
+
+
+
+
 /*
 .fancy-button{
 	color: white;
