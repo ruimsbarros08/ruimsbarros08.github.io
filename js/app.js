@@ -120,8 +120,8 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			description: "From October of 2013 to September of 2015 I've been working in the research project <a href='http://prise.fe.up.pt/eqlogger' target='_blank'> PRISE. </a> <br> \
 						The aim of the project was the earthquake loss assessment of the Portuguese building stock, through the construction of different types of models, \
 						and the risk analysis on <a href='http://www.globalquakemodel.org/openquake/about/' target='_blank'> Openquake. </a> <br> \
-						My enrollment was both on the construction of theses models, and also on the dissimination of the outcomes of the project. \
-						One of this outcomes is a web application called <a href='http://prise.fe.up.pt/eqlogger/'> EQLogger </a>. \
+						My responsibilities were both on the construction of theses models, and also on the dissimination of the outcomes of the project. \
+						One of these outcomes is a web application called <a href='http://prise.fe.up.pt/eqlogger/'> EQLogger </a>. \
 						This is a platform that brings data visualization for real time and probabilistic assessment of earthquake consequences in Portugal. \
 						It provides interactive maps and charts that allow entities such as Civil Protection to make decisions in the case of a disaster. <br> \
 						On this job I had the opportunity to interact with the international partner <a href='http://www.globalquakemodel.org/' target='_blank'> GEM Foundation </a> in Pavia, Italy. \
@@ -191,7 +191,7 @@ website.controller('websiteCtrl', function ($scope, $document, $window) {
 			date_finished: 'Current',
 			course: 'Computer Science',
 			link: 'https://www.isep.ipp.pt/Course/Course/26',
-			details: "Even though I've been working on this area for quite some time, I felt that with this course I could be one step further.",
+			details: "Although I have been working on this area for some time, this degree is giving me consolidation of the knowledge that I had, and the opportunity to learn new technologies.",
 			location: {
 				place:'ISEP',
 				lat: 41.1778174,
